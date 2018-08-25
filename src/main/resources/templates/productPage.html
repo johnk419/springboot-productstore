@@ -15,22 +15,6 @@
 	  <h1>My First Bootstrap Page</h1>
 	  <p>Resize this responsive page to see the effect!</p> 
 	</div>
-	
-	<div class="container">
-	  	<div class="row">
- 	    	<div th:each="product, iterStat : ${productList}" class="col-sm-4">
- 					<div class="card" style="width: 18rem;">
-						<a class="productCard" th:href="@{${product.id}}">
-						<div class="card-body">
-							<h5 class="card-title"><span th:text="${product.name}"></span></h5>
-							<h6 class="card-subtitle mb-2 text-muted"><span th:text="${product.id}"></span></h6>
-							<p class="card-text"><span th:text="${product.description}"></span></p>
-						</div>
-						</a>
-					</div>
- 			</div>
-	  	</div>
-	</div>
 
 <body>
 	<h2>Product Information</h2>
@@ -40,7 +24,7 @@
 			<th scope="col">Name</th>
 			<th scope="col">Description</th>
 		</tr>
-		<tr th:each="product, iterStat : ${productList}">
+		<tr>
 			<th scope="row"><span th:text="${product.id}"></span></th>
 			<td><span th:text="${product.name}"></span></td>
 			<td><span th:text="${product.description}"></span></td>	

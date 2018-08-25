@@ -22,8 +22,8 @@ public class ProductController {
 	
 	@RequestMapping("/products/{id}")
 	public String getProduct(@PathVariable String id, ModelMap modelMap) {
-		modelMap.put("id", productService.getProduct(id));
-		return "products";
+		modelMap.put("product", productService.getProduct(id));
+		return "productPage";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/products")
