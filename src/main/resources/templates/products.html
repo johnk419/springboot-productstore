@@ -37,14 +37,14 @@
 
 <body>	
 	<h2>Product Information</h2>
-	<table cellpadding="2" cellspacing="2">
+	<table class="table">
 		<tr>
-			<th>Id</th>
-			<th>Name</th>
-			<th>Description</th>
+			<th scope="col">Id</th>
+			<th scope="col">Name</th>
+			<th scope="col">Description</th>
 		</tr>
 		<tr th:each="product, iterStat : ${productList}">
-			<td><span th:text="${product.id}"></span></td>
+			<th scope="row"><span th:text="${product.id}"></span></th>
 			<td><span th:text="${product.name}"></span></td>
 			<td><span th:text="${product.description}"></span></td>	
 		</tr>
