@@ -8,16 +8,26 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+// logging
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @Controller
 public class ProductController {
-	
+
 	@Autowired
 	private ProductService productService;
-	
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
+
 	@RequestMapping("/products")
 	public String productsPage(ModelMap modelMap) {
 		modelMap.put("productList", productService.getAllProducts());
 		return "products";
+	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/products/add")
+	public String addProductPage(ModelMap modelMap) {
+		return "addProduct";
 	}
 	
 	@RequestMapping("/products/{id}")
@@ -29,6 +39,7 @@ public class ProductController {
 	@RequestMapping(method = RequestMethod.POST, value = "/products")
 	public void addProduct(@RequestBody Product product) {
 		productService.addProduct(product);
+//		log.info("test");
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{id}")
