@@ -21,7 +21,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping("/products/{id}")
-	public String getProduct(@PathVariable String id, ModelMap modelMap) {
+	public String getProduct(@PathVariable int id, ModelMap modelMap) {
 		modelMap.put("product", productService.getProduct(id));
 		return "productPage";
 	}
@@ -32,12 +32,12 @@ public class ProductController {
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{id}")
-	public void updateProduct(@RequestBody Product product, @PathVariable String id) {
-		productService.updateProduct(product, id);
+	public void updateProduct(@RequestBody Product product, @PathVariable int id) {
+		productService.updateProduct(product);
 	}
 	
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{id}")
-	public void updateProduct(@PathVariable String id) {
+	public void updateProduct(@PathVariable int id) {
 		productService.deleteProduct(id);
 	}
 }
