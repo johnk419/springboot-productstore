@@ -30,9 +30,12 @@
 	
 	<div class="container">
 	  	<div class="row">
- 	    	<div th:each="product, iterStat : ${productList}" class="col-sm-4">
- 					<div class="card" style="width: 18rem;">
-						<a class="productCard" th:href="@{'products/' + ${product.id}}">
+ 	    	<div th:each="product, iterStat : ${productList}" class="col-sm-4">			
+			    <div class="thumbnail">
+			      <a href="/images/mountain.jpg">
+			        <img src="/images/mountain.jpg" alt="Lights" style="width:100%">
+ 					<div class="card">
+						<a class="productCard" th:href="@{${product.id}}">
 						<div class="card-body">
 							<h5 class="card-title"><span th:text="${product.name}"></span></h5>
 							<h6 class="card-subtitle mb-2 text-muted"><span th:text="${product.id}"></span></h6>
@@ -40,6 +43,8 @@
 						</div>
 						</a>
 					</div>
+			      </a>
+			    </div>
  			</div>
 	  	</div>
 	</div>
